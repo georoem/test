@@ -41,3 +41,9 @@ To run the rake task that load artist information from spotify perform the follo
 ```
 rake seed_spotify:load
 ```
+
+Note: To run rake task is mandatory to put the spotify credentials token in seed_spotify.rake
+
+```
+AUTORIZATION = "Put your credentials token here!"
+```
