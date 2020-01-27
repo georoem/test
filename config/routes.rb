@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   scope '/api/v1' do
     resources :artists do
       resources :albums
+      resources :genres
     end
     resources :albums do
       resources :songs
