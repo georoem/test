@@ -1,18 +1,18 @@
 require 'httparty'
 require 'yaml'
 
-AUTORIZATION = "Basic MGNmYzA0NjQ0OTJhNGU5YTg5NTNmMTEyNzE4ZjI2MGY6MmM5ODRkMjk0ZmQ2NDAwZmFhNzVlMzQ5OTU3OGE0NmU="
+AUTORIZATION = "Put your credentials token here!"
 
 namespace :seed_spotify do
     desc 'Load seed data from spotify into the database of the current environment'
     task :load => :environment do
-        
+        puts ENV['configure.spotify.credentials.token']
         token = getToken(AUTORIZATION)
         Dir.glob(Rails.root.to_s + '/db/seed_data/*.yml').each do |file|
             config_options = YAML.load_file(file)
             config_options.each do |key, value|
                 value.each do |artist|
-                    loadData(artist, token)
+                    # loadData(artist, token)
                 end
             end
         end
